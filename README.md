@@ -1,149 +1,140 @@
-# NEXORA
+# NEXORA AI
 
-### AI, Machine Learning, Data & Backend Engineering Portfolio
+### Machine Learning • Data • FastAPI • MetaTrader 5 • Risk Engineering
 
-NEXORA is an independent engineering ecosystem exploring how machine learning, data pipelines, backend services, analytics, and structured knowledge systems can be combined into practical applications.
+**Recruiter-facing entry point for my independent NEXORA engineering project.**
 
-This repository is the **public portfolio entry point** for the NEXORA ecosystem. It intentionally contains no private trading models, credentials, datasets, strategy parameters, or proprietary implementation details.
+NEXORA explores an end-to-end ML-assisted trading system: market/candle data is processed into model features, a LightGBM research workflow produces directional signals and confidence, a Python/FastAPI service forms the integration boundary, independent risk controls can permit or block candidate actions, MetaTrader 5 provides the execution environment, and structured logs feed offline analytics.
 
-> **Portfolio note:** NEXORA is an independently developed project under active development. Public repositories are curated engineering showcases rather than the complete private system.
+> **Project status:** active research and development. NEXORA is not presented as a guaranteed-profit, audited production trading system. Private models, datasets, exact strategy rules, credentials and tuned execution parameters are intentionally excluded from the public portfolio.
 
----
+## Resume-to-GitHub evidence
 
-## Public Projects
+The NEXORA entry on my resume is intentionally mirrored by inspectable public evidence.
 
-### 1. [NEXORA Trading Engine](https://github.com/AshwinThakoor/nexora-trading-engine)
+| Resume claim | Public evidence |
+|---|---|
+| Python/FastAPI signal-system architecture | `nexora-trading-engine` architecture and backend/API documentation |
+| MetaTrader 5 integration | Trading-engine system/sequence diagrams and integration documentation |
+| XAUUSD M5 research scope | Trading-engine README and project context |
+| LightGBM directional modeling | Trading-engine ML research/evaluation documentation and analytics workflows |
+| Engineered market/candle features | Feature-pipeline architecture and evaluation tooling; exact formulas remain private |
+| Confidence-based analysis | Public confidence/segment/evaluation analytics |
+| Risk controls | Independent risk-gate architecture covering exposure, session/context and no-trade behavior |
+| Docker / WSL development | Public development/environment documentation |
+| Data and backend engineering | Analytics utilities, FastAPI architecture, structured logging and supporting NEXORA Brain infrastructure |
 
-An AI-assisted algorithmic trading engineering project focused on market-data analysis, ML-driven signal infrastructure, risk controls, analytics, and integration with MetaTrader 5.
+## Public repositories
 
-**Engineering areas demonstrated**
+### [NEXORA Trading Engine](https://github.com/AshwinThakoor/nexora-trading-engine)
 
-- Python application development
-- FastAPI service architecture
-- Machine-learning signal workflows
-- LightGBM-based modeling
-- MetaTrader 5 integration
-- Market/candle feature engineering
-- Risk-management architecture
-- Trading analytics and performance analysis
-- Docker / WSL development workflow
-- API and system-status interfaces
+The repository most directly supporting the **NEXORA AI** project described on my resume.
 
-The public repository is deliberately sanitized. Private model artifacts, datasets, exact strategy rules, thresholds, execution logic, and commercially sensitive research are not published.
+It demonstrates:
 
-**Repository:** [github.com/AshwinThakoor/nexora-trading-engine](https://github.com/AshwinThakoor/nexora-trading-engine)
+- Python engineering and quantitative analytics;
+- FastAPI signal-service architecture;
+- LightGBM-based directional-model research;
+- market/candle feature-engineering workflow;
+- confidence and segment analysis;
+- MetaTrader 5 integration architecture;
+- independent risk-policy design;
+- structured decision/trade logging;
+- performance-analysis utilities;
+- Docker/WSL-oriented development practices;
+- documentation around model/data/IP boundaries.
 
----
+**Best recruiter evidence:** `ARCHITECTURE.md`, `analytics/performance_analytics_engine.py`, `analytics/analyze_training_events.py`, `analytics/analyze_segments.py`, `analytics/trade_intelligence.py` and `MODEL_AND_DATA_POLICY.md`.
 
-### 2. [NEXORA Brain](https://github.com/AshwinThakoor/nexora-brain)
+### [NEXORA Brain](https://github.com/AshwinThakoor/nexora-brain)
 
-A Python knowledge-management and document-intelligence engine designed around deterministic ingestion, parsing, chunking, structured knowledge representation, persistent storage, and API-driven access.
+A separate backend/AI-infrastructure project that extends the NEXORA ecosystem into document and knowledge processing.
 
-**Engineering areas demonstrated**
+It demonstrates:
 
-- Python and FastAPI
-- SQLAlchemy data modeling
-- Alembic database migrations
-- Document ingestion pipelines
-- PDF, DOCX, TXT, Markdown and HTML parsing
-- Deterministic document chunking
-- Knowledge structures for concepts, claims, evidence and relationships
-- Service and repository architecture
-- Provider-neutral authorization policies
-- Automated testing with pytest
-- GitHub Actions CI
-- Configuration and secret-management practices
+- Python and FastAPI;
+- SQLAlchemy data modeling;
+- Alembic migrations;
+- heterogeneous document ingestion;
+- PDF, DOCX, TXT, Markdown and HTML parsing;
+- deterministic chunking and provenance;
+- structured knowledge entities;
+- service/repository architecture;
+- authorization policy design;
+- pytest and GitHub Actions.
 
-The project establishes infrastructure that can support future retrieval and LLM-based capabilities. It does **not** claim a finished production RAG platform, autonomous AI agent, or commercial SaaS product.
+NEXORA Brain establishes infrastructure that can support future retrieval/LLM capabilities. It is **not** described as a finished RAG platform until embeddings, vector retrieval and answer-generation layers are actually implemented.
 
-**Repository:** [github.com/AshwinThakoor/nexora-brain](https://github.com/AshwinThakoor/nexora-brain)
-
----
-
-## Ecosystem Overview
+## System architecture
 
 ```mermaid
 flowchart LR
-    N[NEXORA Portfolio]
-    T[NEXORA Trading Engine]
-    B[NEXORA Brain]
-
-    T1[Market Data & Features]
-    T2[ML Signal Infrastructure]
-    T3[Risk & Analytics]
-    T4[MT5 Integration]
-
-    B1[Document Ingestion]
-    B2[Parsing & Chunking]
-    B3[Structured Knowledge]
-    B4[FastAPI & Persistence]
-
-    N --> T
-    N --> B
-
-    T --> T1
-    T --> T2
-    T --> T3
-    T --> T4
-
-    B --> B1
-    B --> B2
-    B --> B3
-    B --> B4
+    MD[Market / Candle Data] --> FE[Feature Engineering]
+    FE --> ML[LightGBM Research / Inference]
+    ML --> API[FastAPI Signal Layer]
+    API --> RISK[Independent Risk Gate]
+    RISK -->|approved| MT5[MetaTrader 5]
+    RISK -->|blocked / hold| LOG[Decision Logs]
+    MT5 --> LOG
+    LOG --> ANALYTICS[Offline Analytics]
+    ANALYTICS --> REVIEW[Human Research Review]
 ```
 
-NEXORA is intentionally separated into focused repositories so each engineering domain can be reviewed independently while sensitive research remains private.
+A central design principle is **prediction is not permission**: an ML output does not automatically become a trade. Risk/context policy remains a separate layer.
 
----
+## Technology demonstrated
 
-## Technology Snapshot
-
-| Area | Technologies / Concepts |
+| Area | Evidence |
 |---|---|
 | Programming | Python |
-| Backend | FastAPI, REST APIs |
-| Machine Learning | LightGBM, feature engineering, predictive signal workflows |
-| Data | Pandas, structured processing, analytics pipelines |
-| Persistence | SQLAlchemy, Alembic, SQLite-compatible development |
-| Document Intelligence | Parsing, ingestion, deterministic chunking, structured knowledge |
-| Trading Integration | MetaTrader 5, market-data workflows |
-| Engineering | Git, GitHub, Docker, WSL, pytest, GitHub Actions |
+| Backend | FastAPI, REST architecture |
+| Machine learning | LightGBM, feature engineering, supervised directional-model research |
+| Data analysis | Pandas, NumPy, time-series/candle processing, performance analytics |
+| Trading integration | MetaTrader 5 architecture, XAUUSD M5 research |
+| Risk | decision gates, session/context restrictions, exposure controls, HOLD/no-trade behavior |
+| Data/AI infrastructure | SQLAlchemy, Alembic, ingestion, parsing and deterministic chunking in NEXORA Brain |
+| Engineering | Git, GitHub, Docker/WSL workflows, pytest/CI where applicable |
 
----
+## What is public vs private?
 
-## What This Portfolio Demonstrates
+```mermaid
+flowchart TB
+    FULL[Full NEXORA Environment] --> PUBLIC[Public Portfolio Evidence]
+    FULL --> PRIVATE[Private Research / Implementation]
 
-Rather than presenting isolated notebooks, NEXORA focuses on **end-to-end engineering**: defining system boundaries, processing data, exposing APIs, integrating components, designing persistence, building tests, documenting architecture, and iterating on ML-enabled systems.
+    PUBLIC --> P1[Architecture & Documentation]
+    PUBLIC --> P2[Analytics / Evaluation Code]
+    PUBLIC --> P3[Safe Data Utilities]
+    PUBLIC --> P4[Backend / Knowledge Infrastructure]
 
-The projects demonstrate experience across three connected areas:
+    PRIVATE --> S1[Complete Strategy / EA]
+    PRIVATE --> S2[Trained Model Artifacts]
+    PRIVATE --> S3[Raw Data / Private Logs]
+    PRIVATE --> S4[Exact Features & Thresholds]
+    PRIVATE --> S5[Credentials / Broker Configuration]
+```
 
-**AI & Machine Learning** — feature engineering, predictive modeling infrastructure, model-driven workflows, and foundations for retrieval/LLM systems.
+This separation is deliberate. Recruiters can inspect genuine engineering decisions and code without receiving the complete trading strategy or commercially sensitive implementation.
 
-**Data Engineering & Analytics** — ingestion, transformation, structured storage, analytics, document processing, and reproducible data flows.
+## Recruiter review path
 
-**Backend Engineering** — FastAPI services, database models, migrations, modular service architecture, API integration, configuration, testing, and system documentation.
+For a fast technical review:
 
----
+1. Open **NEXORA Trading Engine** first — it is the direct evidence for the NEXORA AI resume project.
+2. Review its `ARCHITECTURE.md` for the FastAPI → ML → risk → MT5 system design.
+3. Inspect its public `analytics/` modules for Python, data-analysis and ML-evaluation evidence.
+4. Read `MODEL_AND_DATA_POLICY.md` to understand why trained models, exact features and strategy rules are private.
+5. Open **NEXORA Brain** for deeper FastAPI, SQLAlchemy, migrations, ingestion, parsing, chunking and testing evidence.
 
-## Repository Boundaries & IP
+## Evidence standard
 
-The public NEXORA repositories are designed for technical evaluation and portfolio review. The complete private NEXORA environment contains additional research and implementation that is intentionally not published.
+NEXORA documentation intentionally distinguishes between:
 
-Public code must not be interpreted as disclosure of the complete trading strategy or full private system. Credentials, private datasets, trained model artifacts, exact trading parameters, proprietary decision logic, and sensitive configuration are excluded from the recruiter-facing repositories.
+- **implemented/publicly inspectable engineering**;
+- **implemented but deliberately private research/IP**;
+- **future roadmap items**.
 
----
-
-## For Recruiters & Engineers
-
-For the quickest technical review:
-
-1. Start with **NEXORA Brain** to review backend architecture, APIs, database design, ingestion, document processing, migrations, and testing.
-2. Continue with **NEXORA Trading Engine** to review the ML/trading system architecture, analytics, risk-management design, and MT5 integration.
-3. Each repository contains its own architecture and project documentation for deeper review.
-
-Both projects are independent portfolio work and remain under active development.
-
----
+The portfolio does not claim validated profitability, autonomous self-learning, a finished RAG system or production-scale deployment without evidence.
 
 ## Author
 
@@ -151,12 +142,10 @@ Both projects are independent portfolio work and remain under active development
 AI, Data & Backend Development  
 Mauritius · Open to international relocation and remote opportunities
 
-[LinkedIn](https://www.linkedin.com/in/ashwin-thakoor-7aa2a3373) · [GitHub](https://github.com/AshwinThakoor)
+[GitHub Profile](https://github.com/AshwinThakoor) · [LinkedIn](https://www.linkedin.com/in/ashwin-thakoor-7aa2a3373)
 
----
+## License & usage
 
-## License & Usage
+The NEXORA portfolio and associated public repositories are provided for portfolio evaluation and technical review. Private datasets, credentials, trained model artifacts, exact trading parameters and proprietary decision logic remain excluded. Individual repositories contain their applicable licensing terms.
 
-The NEXORA portfolio and associated public NEXORA repositories are provided for portfolio evaluation and technical review. Individual repositories contain their applicable licensing and usage terms.
-
-**© 2026 NEXORA / Ashwin Thakoor. All rights reserved where stated by the applicable repository license.**
+**© 2026 NEXORA / Ashwin Thakoor.**
